@@ -200,7 +200,7 @@ for i in range(len(ddf1)):
 i = 0 
 
 # %% tags=[]
-for i in range(len(ddf1)):
+for i in range(2,len(ddf1)):
     r = ddf1.iloc[i]
 
     p = f"{r['dlt_sta'].strftime('%Y-%m-%dT%H_%M')}-{r['dlt_end'].strftime('%Y-%m-%dT%H_%M')}"
