@@ -193,7 +193,7 @@ def save_figs(i,dout = DOUT,ddf1=ddf1):
 for i in range(len(ddf1)):
     save_figs(i)
 
-# %% [markdown]
+# %% [markdown] heading_collapsed="true" tags=[]
 # ### detailed plots
 
 # %% tags=[]
