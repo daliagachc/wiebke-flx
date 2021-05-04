@@ -200,30 +200,25 @@ for i in range(len(ddf1)):
 i = 0 
 
 # %% tags=[]
-r = ddf1.iloc[i]
+for i in range(len(ddf1)):
+    r = ddf1.iloc[i]
 
-# %% tags=[]
-p = f"{r['dlt_sta'].strftime('%Y-%m-%dT%H_%M')}-{r['dlt_end'].strftime('%Y-%m-%dT%H_%M')}"
-p = pjoin(DOUTH,p)
-os.makedirs(p,exist_ok=True)
+    p = f"{r['dlt_sta'].strftime('%Y-%m-%dT%H_%M')}-{r['dlt_end'].strftime('%Y-%m-%dT%H_%M')}"
+    p = pjoin(DOUTH,p)
+    os.makedirs(p,exist_ok=True)
 
-# %% tags=[]
-e0 = r['dlt_sta'] - pd.Timedelta(hours=5)
+    e0 = r['dlt_sta'] - pd.Timedelta(hours=5)
 
-# %% tags=[]
-e1 = r['dlt_end'] + pd.Timedelta(hours=5)
+    e1 = r['dlt_end'] + pd.Timedelta(hours=5)
 
-# %% tags=[]
-ee0 = pd.date_range(e0,e1,freq='H')
-ee1 = ee0 + pd.Timedelta(minutes=59)
+    ee0 = pd.date_range(e0,e1,freq='H')
+    ee1 = ee0 + pd.Timedelta(minutes=59)
 
-# %% tags=[]
-ndf = pd.DataFrame([ee0,ee1],index=['dlt_sta','dlt_end']).T
-ndf
+    ndf = pd.DataFrame([ee0,ee1],index=['dlt_sta','dlt_end']).T
+    ndf
 
-# %% tags=[]
-for j in range(len(ndf)):
-    save_figs(j,dout=p,ddf1=ndf)
+    for j in range(len(ndf)):
+        save_figs(j,dout=p,ddf1=ndf)
 
 # %% [markdown] tags=[] heading_collapsed="true"
 # ## time series summary stats 
