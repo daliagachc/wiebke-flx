@@ -2,3 +2,8 @@
 .idea
 .DS_Store
 .virtual_documents
+
+__pycache__
+
+wiebke_flx/input_data
+!wiebke_flx/input_data/README.md

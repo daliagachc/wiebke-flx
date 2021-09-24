@@ -16,17 +16,41 @@
 # ## imports
 
 # %% tags=[]
-import usit.p
 
 # %% tags=[]
-from useful_scit.imps2.defs import *
+# only for development, you can comment it out
+
+#load and autoreload
+from IPython import get_ipython
+
+# noinspection PyBroadException
+try:
+    _ipython = get_ipython()
+    _magic = _ipython.magic
+    _magic('load_ext autoreload')
+    _magic('autoreload 2')
+except:
+    pass
 
 # %% tags=[]
+# from useful_scit.imps2.defs import *
+import os
+import seaborn as sns
+import pandas as pd
+import xarray as xr
+import cartopy as crt
+import numpy as np
+import matplotlib as mpl
+
+import matplotlib.pyplot as plt
+
+# %% tags=[]
+# so that it works when run from jupyter lab 
 import sys; sys.path.insert(0, '../..')
 
 # %% tags=[]
 from wiebke_flx import constants as co
-
+from wiebke_flx.funs import splot, pjoin
 # %% tags=[]
 sns.set_theme()
 
@@ -137,6 +161,7 @@ def pmap(d1,d2):
     
 
 
+
 # %% tags=[]
 def phgt(d1,d2):
     s1 = ds.loc[{RL:slice(d1,d2)}].mean(RL)
@@ -220,7 +245,7 @@ for i in range(2,len(ddf1)):
     for j in range(len(ndf)):
         save_figs(j,dout=p,ddf1=ndf)
 
-# %% [markdown] tags=[] heading_collapsed="true"
+# %% [markdown] tags=[]
 # ## time series summary stats 
 
 # %% [markdown] tags=[] heading_collapsed="true"
@@ -302,5 +327,9 @@ def save_figs2(i):
 # %% tags=[]
 for i in range(len(ddf1)):
     save_figs2(i)
+
+# %% tags=[]
+#only to save the html. you can comment out
+# !jupyter-nbconvert --to html ./z010_explore.ipynb
 
 # %%
